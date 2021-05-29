@@ -1,5 +1,5 @@
 import gym
-from models.epislon_geedy_binary import EpsilonGreedy
+from models.epislon_geedy import EpsilonGreedy
 import numpy as np
 
 if __name__ == '__main__':
@@ -11,7 +11,7 @@ if __name__ == '__main__':
     model = EpsilonGreedy(epsilon=0.3)
 
     episodes_rewards = []
-    episodes_num = 10_000
+    episodes_num = 100
     for _ in range(episodes_num):  # episodes
         done = False
         current_total_reward = 0
@@ -27,3 +27,4 @@ if __name__ == '__main__':
         print(f'ends after {t} with total reward of {current_total_reward}')
     env.close()
     print(np.max(episodes_rewards))
+    print(model.average_reward)
